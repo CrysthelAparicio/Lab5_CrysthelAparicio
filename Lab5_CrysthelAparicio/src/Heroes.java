@@ -91,7 +91,7 @@ public class Heroes {
 
     @Override
     public String toString() {
-        return "Heroes{" + "nombre=" + nombre + ", poder=" + poder + ", debilidad=" + debilidad + ", baseEscuadronH=" + baseEscuadronH + ", fuerza=" + fuerza + ", agilidadFisica=" + agilidadFisica + ", agilidadMental=" + agilidadMental + '}';
+        return "Heroes{" + "nombre=" + nombre + ", poder=" + poder + '}';
     }
 
 }

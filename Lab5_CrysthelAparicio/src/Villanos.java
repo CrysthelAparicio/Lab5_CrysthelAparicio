@@ -91,7 +91,7 @@ public class Villanos {
 
     @Override
     public String toString() {
-        return "Villanos{" + "nombre=" + nombre + ", poder=" + poder + ", debilidad=" + debilidad + ", baseEscuadron=" + baseEscuadron + ", fuerza=" + fuerza + ", agilidadFisica=" + agilidadFisica + ", agilidadMental=" + agilidadMental + '}';
+        return "Heroes{" + "nombre=" + nombre + ", poder=" + poder + '}';
     }
 
 }

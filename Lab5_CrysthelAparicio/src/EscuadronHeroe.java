@@ -13,23 +13,21 @@ import java.util.ArrayList;
 public class EscuadronHeroe {
 
     private String nombre;
-    private String localidadBase;
-    private String lema;
+    private String localidad;
     private String lider;
-    private String tipo; //heroe/villano
-    //LISTAS
-    private ArrayList<Heroes> baseHeroes;
+    private String lema;
+    private String tipo_Escuadron;
+    private ArrayList<Heroes> heroe = new ArrayList();
 
     public EscuadronHeroe() {
     }
 
-    public EscuadronHeroe(String nombre, String localidadBase, String lema, String lider, String tipo, ArrayList<Heroes> baseHeroes) {
+    public EscuadronHeroe(String nombre, String localidad, String lider, String lema, String tipo_Escuadron) {
         this.nombre = nombre;
-        this.localidadBase = localidadBase;
-        this.lema = lema;
+        this.localidad = localidad;
         this.lider = lider;
-        this.tipo = tipo;
-        this.baseHeroes = baseHeroes;
+        this.lema = lema;
+        this.tipo_Escuadron = tipo_Escuadron;
     }
 
     public String getNombre() {
@@ -40,20 +38,12 @@ public class EscuadronHeroe {
         this.nombre = nombre;
     }
 
-    public String getLocalidadBase() {
-        return localidadBase;
+    public String getLocalidad() {
+        return localidad;
     }
 
-    public void setLocalidadBase(String localidadBase) {
-        this.localidadBase = localidadBase;
-    }
-
-    public String getLema() {
-        return lema;
-    }
-
-    public void setLema(String lema) {
-        this.lema = lema;
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
     }
 
     public String getLider() {
@@ -64,26 +54,33 @@ public class EscuadronHeroe {
         this.lider = lider;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getLema() {
+        return lema;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setLema(String lema) {
+        this.lema = lema;
     }
 
-    public ArrayList<Heroes> getBaseHeroes() {
-        return baseHeroes;
+    public String getTipo_Escuadron() {
+        return tipo_Escuadron;
     }
 
-    public void setBaseHeroes(ArrayList<Heroes> baseHeroes) {
-        this.baseHeroes = baseHeroes;
+    public void setTipo_Escuadron(String tipo_Escuadron) {
+        this.tipo_Escuadron = tipo_Escuadron;
+    }
+
+    public ArrayList<Heroes> getHeroe() {
+        return heroe;
+    }
+
+    public void setHeroe(ArrayList<Heroes> heroe) {
+        this.heroe = heroe;
     }
 
     @Override
-
     public String toString() {
-        return "EscuadronHeroe{" + "nombre=" + nombre + ", localidadBase=" + localidadBase + ", lema=" + lema + ", lider=" + lider + ", tipo=" + tipo + ", baseHeroes=" + baseHeroes + '}';
+        return "Escuadron_SuperHeroes{" + "nombre=" + nombre + ", localidad=" + localidad;
     }
 
 }
