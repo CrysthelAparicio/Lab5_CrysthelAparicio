@@ -104,8 +104,10 @@ public class Principal extends javax.swing.JFrame {
         ppMenu = new javax.swing.JPopupMenu();
         jmiEliminarTree = new javax.swing.JMenuItem();
         jmiVerDatos = new javax.swing.JMenuItem();
+        jd_simulacion = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         treePrincipal = new javax.swing.JTree();
+        ButonArbol = new java.awt.Button();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jmHeroe = new javax.swing.JMenuItem();
@@ -637,6 +639,17 @@ public class Principal extends javax.swing.JFrame {
         });
         ppMenu.add(jmiVerDatos);
 
+        javax.swing.GroupLayout jd_simulacionLayout = new javax.swing.GroupLayout(jd_simulacion.getContentPane());
+        jd_simulacion.getContentPane().setLayout(jd_simulacionLayout);
+        jd_simulacionLayout.setHorizontalGroup(
+            jd_simulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jd_simulacionLayout.setVerticalGroup(
+            jd_simulacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Power Squad");
@@ -647,6 +660,13 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         jScrollPane1.setViewportView(treePrincipal);
+
+        ButonArbol.setLabel("button1");
+        ButonArbol.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ButonArbolMouseClicked(evt);
+            }
+        });
 
         jMenu1.setText("Squad");
 
@@ -700,15 +720,23 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(90, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(ButonArbol, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ButonArbol, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(31, Short.MAX_VALUE))
         );
+
+        ButonArbol.getAccessibleContext().setAccessibleName("Arbolito");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1033,6 +1061,9 @@ public class Principal extends javax.swing.JFrame {
             if (nodoSeleccionado.getUserObject() instanceof String && nodoSeleccionado.getChildCount() == 0) {
                 HeroeSeleccionado = (String) nodoSeleccionado.getUserObject();
                 ppMenu.show(this, evt.getX(), evt.getY());
+            } else if (nodoSeleccionado.getUserObject() instanceof String && nodoSeleccionado.getChildCount() == 0) {
+                VillanoSeleccionado = (String) nodoSeleccionado.getUserObject();
+                ppMenu.show(this, evt.getX(), evt.getY());
             }
         }
     }//GEN-LAST:event_treePrincipalMouseClicked
@@ -1056,6 +1087,7 @@ public class Principal extends javax.swing.JFrame {
         try {
             DefaultTreeModel modelo = (DefaultTreeModel) treePrincipal.getModel();
             JOptionPane.showMessageDialog(this, HeroeSeleccionado);
+            JOptionPane.showMessageDialog(this, VillanoSeleccionado);
 
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Error!\n" + e.getMessage());
@@ -1083,7 +1115,7 @@ public class Principal extends javax.swing.JFrame {
             modelo.addElement(new EscuadronHeroe(nombre, localidad, lider, lema, tipo));
             jl_escuadron_villanos.setModel(modelo);
             JOptionPane.showMessageDialog(jd_escuadronV, "Se añadio exitosamente el escuadron");
-            
+
             DefaultTreeModel modeloTree = (DefaultTreeModel) treePrincipal.getModel();
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloTree.getRoot();
             DefaultMutableTreeNode nodoEquipo = new DefaultMutableTreeNode(raiz.getAllowsChildren());
@@ -1158,7 +1190,7 @@ public class Principal extends javax.swing.JFrame {
             modelo.addElement(new EscuadronHeroe(nombre, localidad, lider, lema, tipo));
             jl_escuadron_heroes.setModel(modelo);
             JOptionPane.showMessageDialog(jd_escuadronH, "Se añadio exitosamente el escuadron");
-            
+
             DefaultTreeModel modeloTree = (DefaultTreeModel) treePrincipal.getModel();
             DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloTree.getRoot();
             DefaultMutableTreeNode nodoEquipo = new DefaultMutableTreeNode(raiz.getAllowsChildren());
@@ -1206,6 +1238,10 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bt_elim_es_heMouseClicked
 
+    private void ButonArbolMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ButonArbolMouseClicked
+
+    }//GEN-LAST:event_ButonArbolMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -1242,6 +1278,7 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private java.awt.Button ButonArbol;
     private javax.swing.JButton bHeroeEliminar;
     private javax.swing.JButton bHeroeModificar;
     private javax.swing.JButton bVillanoEliminar;
@@ -1295,6 +1332,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JDialog jd_escuadronH;
     private javax.swing.JDialog jd_escuadronV;
     private javax.swing.JDialog jd_heroes;
+    private javax.swing.JDialog jd_simulacion;
     private javax.swing.JDialog jd_villanos;
     private javax.swing.JList<String> jlHeroes;
     private javax.swing.JList<String> jlVillanos;
